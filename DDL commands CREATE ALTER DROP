@@ -1,0 +1,40 @@
+mysql> create database School;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> use database School;
+ERROR 1049 (42000): Unknown database 'database'
+mysql> use School;
+Database changed
+mysql> create table Student(studentregno int(5),studentname varchar(30),studentage int(2));
+Query OK, 0 rows affected (0.24 sec)
+
+mysql> desc Student;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| studentregno | int(5)      | YES  |     | NULL    |       |
+| studentname  | varchar(30) | YES  |     | NULL    |       |
+| studentage   | int(2)      | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.09 sec)
+
+mysql> alter table Student add department varchar(30);
+Query OK, 0 rows affected (0.28 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Student;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| studentregno | int(5)      | YES  |     | NULL    |       |
+| studentname  | varchar(30) | YES  |     | NULL    |       |
+| studentage   | int(2)      | YES  |     | NULL    |       |
+| department   | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> drop table Student;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc Student;
+ERROR 1146 (42S02): Table 'school.student' doesn't exist
