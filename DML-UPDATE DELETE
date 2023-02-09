@@ -1,0 +1,39 @@
+mysql> update Patient set address='tvk nagar' where admissiondate=12;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from Patient;
++-------------+---------------+-----------+
+| patientname | admissiondate | address   |
++-------------+---------------+-----------+
+| Abi         |            12 | tvk nagar |
++-------------+---------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> insert into Patient value('Nivi',12,'thandalam');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select *from Patient;
++-------------+---------------+-----------+
+| patientname | admissiondate | address   |
++-------------+---------------+-----------+
+| Abi         |            12 | tvk nagar |
+| Nivi        |            12 | thandalam |
++-------------+---------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> delete table Patient where(patientname=Abi);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table Patient where(patientname=Abi)' at line 1
+mysql> delete from Patient where(patientname=Abi);
+ERROR 1054 (42S22): Unknown column 'Abi' in 'where clause'
+mysql> delete from Patient where patientname=Abi;
+ERROR 1054 (42S22): Unknown column 'Abi' in 'where clause'
+mysql> delete from Patient where patientname='Abi';
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select *from Patient;
++-------------+---------------+-----------+
+| patientname | admissiondate | address   |
++-------------+---------------+-----------+
+| Nivi        |            12 | thandalam |
++-------------+---------------+-----------+
