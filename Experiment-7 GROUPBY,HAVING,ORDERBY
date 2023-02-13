@@ -1,0 +1,74 @@
+sum(Salary) from Empd
+GROUP BY Emp_name
+HAVING Emp_name<>'Sita'' at line 1
+mysql> HAVING Emp_name <> 'Sita';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'HAVING Emp_name <> 'Sita'' at line 1
+mysql> HAVING Emp_name <>'Sita';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'HAVING Emp_name <>'Sita'' at line 1
+mysql> select Emp_name,sum(Salary) from Empd
+    -> GROUP BY Emp_name
+    -> HAVING Emp_name <>'sita';
++----------+-------------+
+| Emp_name | sum(Salary) |
++----------+-------------+
+| Charles  |        8000 |
+| Hema     |        5560 |
+| Ram      |        5000 |
++----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select Emp_name from Empd ORDER BY Salary;
++----------+
+| Emp_name |
++----------+
+| Sita     |
+| Ram      |
+| Hema     |
+| Charles  |
++----------+
+4 rows in set (0.00 sec)
+
+mysql> select Emp_name,sum(Salary) from Empd
+    -> GROUP BY Emp_name;
++----------+-------------+
+| Emp_name | sum(Salary) |
++----------+-------------+
+| Charles  |        8000 |
+| Hema     |        5560 |
+| Ram      |        5000 |
+| Sita     |        3600 |
++----------+-------------+
+4 rows in set (0.00 sec)
+
+mysql> select Emp_name,sujm(Salary) from Empd
+    -> GROUP BY Emp_name
+    -> HAVING Emp_name <>'Charles';
+ERROR 1305 (42000): FUNCTION sharmi.sujm does not exist
+mysql> selext Emp_name,sum(Salary) from Empd
+    -> GROUP BY Emp_name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selext Emp_name,sum(Salary) from Empd
+GROUP BY Emp_name' at line 1
+mysql> select Emp_name,sum(Salary) from Empd
+    -> GROUP BY Emp_name
+    -> HAVING Emp_name <>'Hema';
++----------+-------------+
+| Emp_name | sum(Salary) |
++----------+-------------+
+| Charles  |        8000 |
+| Ram      |        5000 |
+| Sita     |        3600 |
++----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select Salary from Empd ORDER BY Emp_name;
++--------+
+| Salary |
++--------+
+|   8000 |
+|   5560 |
+|   5000 |
+|   3600 |
++--------+
+4 rows in set (0.00 sec)
+
+mysql>
